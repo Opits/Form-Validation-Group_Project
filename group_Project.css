@@ -135,3 +135,12 @@ select {
   background-color: red;
   color: burlywood;
 }
+
+.highlightField{
+  border-color: blue;
+  border-width: 2.5px;
+}
+
+.highlightHead{
+  color: blue;
+}
