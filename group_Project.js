@@ -32,33 +32,27 @@ document.getElementById(nameField.id + 'Label').classList.add('highlightHead');
 function highlightClick(e) {
     try {
         var doc = (e.target.id), label = document.getElementById(doc + 'Label');
-
-        
         var element = document.querySelectorAll('input, label'), counter = 0;
         while (counter < element.length) {
-//           console.log(element[counter].classList.contains('highlightField') + ' ' + element[counter].classList.contains('highlightHead'));
+            //           console.log(element[counter].classList.contains('highlightField') + ' ' + element[counter].classList.contains('highlightHead'));
             if (element[counter].classList.contains('highlightField')) {
                 element[counter].classList.remove('highlightField');
             }
             if (element[counter].classList.contains('highlightHead')) {
-                element[counter].classList.remove('highlightHead');}
+                element[counter].classList.remove('highlightHead');
+            }
             counter++;
         }
         if (!e.target.classList.contains('highlightField')) {
             console.log(doc + ' ' + label.textContent);
             e.target.classList.add('highlightField');
             label.classList.add('highlightHead');
-
         }
-
-    } catch {
-
+    } catch(err) {
+        console.log(err);
     }
 
 }
-
-
-
 document.addEventListener('click', highlightClick);
 
 
