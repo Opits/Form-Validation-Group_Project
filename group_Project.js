@@ -1,209 +1,89 @@
-const 
-nameField = document.getElementById('First'),
-nameLabel = document.getElementById('firstLabel'),
+const
+    nameField = document.getElementById('First'),
+    nameLabel = document.getElementById('firstLabel'),
 
-surnameField = document.getElementById('Last'),
-surnameLabel = document.getElementById('lastLabel'),
+    surnameField = document.getElementById('Last'),
+    surnameLabel = document.getElementById('lastLabel'),
 
-emailField = document.getElementById('Email'),
-emailLabel = document.getElementById('emailLabel'),
+    emailField = document.getElementById('Email'),
+    emailLabel = document.getElementById('emailLabel'),
 
-idField = document.getElementById('userID'),
-idLabel = document.getElementById('userIDLabel'),
+    idField = document.getElementById('userID'),
+    idLabel = document.getElementById('userIDLabel'),
 
-countryField = document.getElementById('Country'),
-countryLabel = document.getElementById('countryLabel'),
+    countryField = document.getElementById('Country'),
+    countryLabel = document.getElementById('countryLabel'),
 
-stateField = document.getElementById('State'),
-stateLable = document.getElementById('stateLable'),
+    stateField = document.getElementById('State'),
+    stateLabel = document.getElementById('stateLabel'),
 
-cityField = document.getElementById('City'),
-cityLable = document.getElementById('cityLable'),
+    cityField = document.getElementById('City'),
+    cityLabel = document.getElementById('cityLabel'),
 
-phoneField = document.getElementById('Phone'),
-phoneLabel = document.getElementById('phoneLabel'),
+    phoneField = document.getElementById('Phone'),
+    phoneLabel = document.getElementById('phoneLabel'),
 
-referenceField = document.getElementById('RefCod'),
+    referenceField = document.getElementById('RefCod');
 
-phoneInput = document.getElementById('Phone'), 
 
-errorMessage = document.getElementById('error-message'),
-errorMessage2 = document.getElementById('error-message02'),
-errorMessage3 = document.getElementById('error-message03');
+referenceField.classList.add('highlightField');
+document.getElementById(nameField.id + 'Label').classList.add('highlightHead');
 
-validTick = document.getElementById('tick'),
-unvalidCross = document.getElementById('cross');
+function highlightClick(e) {
+    try {
+        var doc = (e.target.id), label = document.getElementById(doc + 'Label');
+        var element = document.querySelectorAll('input, label'), counter = 0;
+        while (counter < element.length) {
+            //           console.log(element[counter].classList.contains('highlightField') + ' ' + element[counter].classList.contains('highlightHead'));
+            if (element[counter].classList.contains('highlightField')) {
+                element[counter].classList.remove('highlightField');
+            }
+            if (element[counter].classList.contains('highlightHead')) {
+                element[counter].classList.remove('highlightHead');
+            }
+            counter++;
+        }
+        if (!e.target.classList.contains('highlightField')) {
+            console.log(doc + ' ' + label.textContent);
+            e.target.classList.add('highlightField');
+            label.classList.add('highlightHead');
+        }
+    } catch(err) {
+        console.log(err);
+    }
 
-let showErrorMessage = false; 
-
-//function to highlight a field when clicked on
- function highlightClick()
-{
-    nameField.classList.add('highlightField');
-    nameLabel.classList.add('highlightHead');
-
-    surnameField.classList.add('highlightField');
-    surnameLabel.classList.add('highlightHead');
-
-    emailField.classList.add('highlightField');
-    emailLabel.classList.add('highlightHead');
-
-    idField.classList.add('highlightField');
-    idLabel.classList.add('highlightHead');
-
-    countryField.classList.add('highlightField');
-    countryLabel.classList.add('highlightHead');
-
-    stateField.classList.add('highlightField');
-    stateLable.classList.add('highlightHead');
-
-    cityField.classList.add('highlightField');
-    cityLable.classList.add('highlightHead');
-
-    phoneField.classList.add('highlightField');
-    phoneLabel.classList.add('highlightHead');
-
-    referenceField.classList.add('highlightField');
 }
-
- //function to remove the highlight from the field once clicked off of it
- function unhighlightClick(e)
-{
-    if (e.target !== nameField)
-    {
-        nameField.classList.remove('highlightField');
-        nameLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== surnameField)
-    {
-        surnameField.classList.remove('highlightField');
-        surnameLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== emailField)
-    {
-        emailField.classList.remove('highlightField');
-        emailLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== idField)
-    {
-        idField.classList.remove('highlightField');
-        idLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== countryField)
-    {
-        countryField.classList.remove('highlightField');
-        countryLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== stateField)
-    {
-        stateField.classList.remove('highlightField');
-        stateLable.classList.remove('highlightHead');
-    }
-
-    if (e.target !== cityField)
-    {
-        cityField.classList.remove('highlightField');
-        cityLable.classList.remove('highlightHead');
-    }
-
-    if (e.target !== phoneField)
-    {
-       phoneField.classList.remove('highlightField');
-       phoneLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== referenceField)
-    {
-        referenceField.classList.remove('highlightField');
-    }
-}  
-
-//function to hide the error message when the name is not in the correct format...(It will only hide when the focus is on the name-field)
-nameField.addEventListener('focus',function ()
-{
-  errorMessage.textContent = '';
-});
-
-//function to display an error message if the name is not in the correct format... (It will only display when the focus is not on the name-field)
-nameField.addEventListener('blur', function ()
-{
-    showErrorMessage = true;
-
-    if(!/^[A-Za-z]+$/.test(nameField.value))
-    {
-        errorMessage.textContent = 'Name may only contain letters'
-    }
-    else
-    {
-        errorMessage.textContent=''
-    }
-});
-
-//function to hide the error message when the lastname is not in the correct format...(It will only hide when the focus is on the lastname-field)
-surnameField.addEventListener('focus',function ()
-{
-  errorMessage2.textContent = '';
-});
-
-//function to display an error message if the lastname is not in the correct format... (It will only display when the focus is not on the lastname-field)
-surnameField.addEventListener('blur', function ()
-{
-    showErrorMessage = true;
-
-    if(!/^[A-Za-z]+$/.test(surnameField.value))
-    {
-        errorMessage2.textContent = 'Last Name may only contain letters'
-    }
-    else
-    {
-        errorMessage2.textContent=''
-    }
-});
-
-//function to hide the error message when the phone number is not in the correct format...(It will only hide when the focus is on the phone-number field)
-phoneInput.addEventListener('focus', function () 
-{
-    errorMessage3.textContent = '';
-});
-
-//function to display an error message if the phone number is not in the correct format... (It will only display when the focus is not on the phone-number field)
-phoneInput.addEventListener('blur', function () 
-{
- showErrorMessage = true;
-
- if(!/^\d{10}$/.test(phoneInput.value))
- {
-    errorMessage3.textContent = 'Please enter a valid phone number!'
- }
- else
- {
-    errorMessage3.textContent ='';
- }
-});
-
-
-//If the email-filed includes an "@" it will display a green tick, else it will display a red cross.
-emailField.addEventListener('input', function () 
-{
-  if (emailField.value.includes('@'))
-  {
-    validTick.style.display = 'inline';
-    unvalidCross.style.display = 'none';
-  }
-  else
-  {
-    validTick.style.display = 'none';
-    unvalidCross.style.display = 'inline';
-  }
-});
-
-
 document.addEventListener('click', highlightClick);
- 
-document.addEventListener('click', unhighlightClick);
- 
+
+//part 4 
+
+const fileInput = document.getElementById("fileInput");
+const bytesSizeSpan = document.getElementById("bytesSize");
+const kbSizeSpan = document.getElementById("kbSize");
+const mbSizeSpan = document.getElementById("mbSize");
+
+fileInput.addEventListener("change", function () {
+    try {        
+    const selectedFile = this.files[0];
+    const fileSizeBytes = selectedFile.size;
+    const fileSizeKB = fileSizeBytes / 1024;
+    const fileSizeMB = fileSizeKB / 1024;
+
+    bytesSizeSpan.textContent = fileSizeBytes + " bytes";
+    kbSizeSpan.textContent = fileSizeKB.toFixed(2) + " KB";
+    mbSizeSpan.textContent = fileSizeMB.toFixed(2) + " MB";
+
+    var userInput = prompt("Enter a nr : ");
+
+    switch (userInput) {
+        case "1": console.log(selectedFile); break; 
+        case "2": console.log(bytesSizeSpan); break; 
+        case "3": console.log(kbSizeSpan); break; 
+        case "4": console.log(mbSizeSpan); break; 
+        default: console.log("wrong input"); break;}
+    } catch (error) {
+        console.log("error: part 4/file size" )
+    }
+
+});
+
