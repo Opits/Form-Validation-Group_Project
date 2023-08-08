@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <form action="" class="gridOverView">
+    <form action="" id="theForm" class="gridOverView">
       <section id="uniqueBlue"></section>
       <section class="">
         <header>
@@ -18,15 +18,17 @@
         <hr />
         <section class="fieldGrids">
           <section class="fieldAlignLeft">
-            <label for="First">First Name</label>
-            <input type="text" name="First" id="First" placeholder="John" required/>
+            <label for="First" id="firstLabel">First Name</label>
+            <input type="text" name="First" id="First" class="highlightField" placeholder="John" required/>
+            <div id="error-message" class="error"></div>
           </section>
           <section class="fieldAlignRight">
-            <label for="Last">Last Name</label>
+            <label for="Last" id="lastLabel">Last Name</label>
             <input type="text" name="Last" id="Last" placeholder="Doe" required />
+            <div id="error-message02" class="error"></div>
           </section>
           <section class="fieldAlignLeft">
-            <label for="Email">Email ID</label>
+            <label for="Email" id="emailLabel">Email ID</label>
             <input
               type="email"
               name="Email"
@@ -34,13 +36,15 @@
               placeholder="doe.j@email.com"
               required
             />
+            <span id="tick" class="tick">✓</span>
+            <span id="cross" class="cross">X</span>
           </section>
           <section class="fieldAlignRight">
-            <label for="userID">Your User ID</label>
+            <label for="userID" id="userIDLabel">Your User ID</label>
             <input type="text" name="userID" id="userID" placeholder="Doe_J" required/>
           </section>
           <section class="fieldAlignLeft">
-            <label for="Country">Country</label>
+            <label for="Country" id="countryLabel">Country</label>
             <select name="Country" id="Country" required>
               <option value="">
                 --------------------- Select a country ---------------------
@@ -147,7 +151,7 @@
           </section>
           <section id="StateCityGrid" class="fieldAlignRight" required>
             <section class="StateCityAlign">
-              <label for="State">State</label>
+              <label for="State" id="stateLable">State</label>
               <select name="State" id="State">
                 <option value="">--- Select a state ---</option>
                 <option value="EC">Eastern Cape</option>
@@ -192,7 +196,7 @@
               </select>
             </section>
             <section class="StateCityAlign">
-              <label for="City">City</label>
+              <label for="City" id="cityLable">City</label>
               <select name="City" id="City">
                 <option value="">--- Select a city ---</option>
                 <option value="Johannesburg">Johannesburg</option>
@@ -244,15 +248,15 @@
             </section>
           </section>
           <section class="fieldAlignLeft">
-            <label for="Phone">Phone Number</label>
+            <label for="Phone" id="phoneLabel">Phone Number</label>
             <input
               type="tel"
               name="Phone"
               id="Phone"
-              placeholder="+27 87 654 321"
+             placeholder="+27 87 654 321"
               required
-              
             />
+            <div id="error-message03" class="error03"></div>
           </section>
           <section id="RefCodeAlign">
             <input
