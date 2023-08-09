@@ -1,214 +1,141 @@
-const 
-nameField = document.getElementById('First'),
-nameLabel = document.getElementById('firstLabel'),
+// Global variables
+const cityField = document.getElementById('City');
+const cityLabel = document.getElementById('cityLabel');
+const countryField = document.getElementById('Country');
+const countryLabel = document.getElementById('countryLabel');
+const emailField = document.getElementById('Email');
+const emailLabel = document.getElementById('emailLabel');
+//error messages
+const errorMessage01 = document.getElementById('error-message01');
+const errorMessage02 = document.getElementById('error-message02');
+const errorMessage03 = document.getElementById('error-message03');
+// Define more errorMessageX variables as needed
+const errorMessage04 = document.getElementById('error-message04');
+const errorMessage05 = document.getElementById('error-message05');
+const errorMessage06 = document.getElementById('error-message06');
+const errorMessage07 = document.getElementById('error-message07');
+const errorMessage08 = document.getElementById('error-message08');
+const errorMessage09 = document.getElementById('error-message09');
 
-surnameField = document.getElementById('Last'),
-surnameLabel = document.getElementById('lastLabel'),
+const form = document.getElementById('theForm');
+const idField = document.getElementById('userID');
+const idLabel = document.getElementById('userIDLabel');
+const nameField = document.getElementById('First');
+const nameLabel = document.getElementById('firstLabel');
+const phoneField = document.getElementById('Phone');
+const phoneInput = document.getElementById('Phone');
+const phoneLabel = document.getElementById('phoneLabel');
+const referenceField = document.getElementById('RefCod');
+const stateField = document.getElementById('State');
+const stateLabel = document.getElementById('stateLabel');
+const surnameField = document.getElementById('Last');
+const surnameLabel = document.getElementById('lastLabel');
+//icons
+const unValidCross = document.getElementById('cross');
+const validTick = document.getElementById('tick');
 
-emailField = document.getElementById('Email'),
-emailLabel = document.getElementById('emailLabel'),
+let showErrorMessage = false;
+let formSubmitted = false;
 
-idField = document.getElementById('userID'),
-idLabel = document.getElementById('userIDLabel'),
+//let errorMessage = document.getElementById('error-message');
+//variables end
+////////////////////////////////////////////////////////////////////////////////////////
 
-countryField = document.getElementById('Country'),
-countryLabel = document.getElementById('countryLabel'),
+//all fields for highlight function
+nameField.addEventListener('focus', highlightClick);
+surnameField.addEventListener('focus', highlightClick);
+emailField.addEventListener('focus', highlightClick);
+idField.addEventListener('focus', highlightClick);
+countryField.addEventListener('focus', highlightClick);
+stateField.addEventListener('focus', highlightClick);
+cityField.addEventListener('focus', highlightClick);
+phoneField.addEventListener('focus', highlightClick);
+referenceField.addEventListener('focus', highlightClick);
+phoneInput.addEventListener('focus', highlightClick);
+//highlight a field when clicked on
+function highlightClick(e) {
+    try {
+        const targetId = e.target.id;
+        const inputElement = document.getElementById(targetId);
+        const labelElement = document.querySelector(`label[for="${targetId}"]`);
 
-stateField = document.getElementById('State'),
-stateLable = document.getElementById('stateLable'),
+        const elementsToClear = document.querySelectorAll('.highlightField, .highlightHead');
+        elementsToClear.forEach(element => {
+            element.classList.remove('highlightField', 'highlightHead');
+        });
 
-cityField = document.getElementById('City'),
-cityLable = document.getElementById('cityLable'),
-
-phoneField = document.getElementById('Phone'),
-phoneLabel = document.getElementById('phoneLabel'),
-
-referenceField = document.getElementById('RefCod'),
-
-phoneInput = document.getElementById('Phone'), 
-
-errorMessage = document.getElementById('error-message'),
-errorMessage2 = document.getElementById('error-message02'),
-errorMessage3 = document.getElementById('error-message03');
-
-validTick = document.getElementById('tick'),
-unvalidCross = document.getElementById('cross');
-
-let showErrorMessage = false; 
-
-//function to highlight a field when clicked on
- function highlightClick()
-{
-    nameField.classList.add('highlightField');
-    nameLabel.classList.add('highlightHead');
-
-    surnameField.classList.add('highlightField');
-    surnameLabel.classList.add('highlightHead');
-
-    emailField.classList.add('highlightField');
-    emailLabel.classList.add('highlightHead');
-
-    idField.classList.add('highlightField');
-    idLabel.classList.add('highlightHead');
-
-    countryField.classList.add('highlightField');
-    countryLabel.classList.add('highlightHead');
-
-    stateField.classList.add('highlightField');
-    stateLable.classList.add('highlightHead');
-
-    cityField.classList.add('highlightField');
-    cityLable.classList.add('highlightHead');
-
-    phoneField.classList.add('highlightField');
-    phoneLabel.classList.add('highlightHead');
-
-    referenceField.classList.add('highlightField');
+        if (inputElement) {
+            inputElement.classList.add('highlightField');
+        }
+        if (labelElement) {
+            labelElement.classList.add('highlightHead');
+        }
+    } catch (err) {
+        console.log(err);
+    }
 }
 
- //function to remove the highlight from the field once clicked off of it
- function unhighlightClick(e)
-{
-    if (e.target !== nameField)
-    {
-        nameField.classList.remove('highlightField');
-        nameLabel.classList.remove('highlightHead');
-    }
+//end of highlight
+////////////////////////////////////////////////////////////////////////////////////////
 
-    if (e.target !== surnameField)
-    {
-        surnameField.classList.remove('highlightField');
-        surnameLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== emailField)
-    {
-        emailField.classList.remove('highlightField');
-        emailLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== idField)
-    {
-        idField.classList.remove('highlightField');
-        idLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== countryField)
-    {
-        countryField.classList.remove('highlightField');
-        countryLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== stateField)
-    {
-        stateField.classList.remove('highlightField');
-        stateLable.classList.remove('highlightHead');
-    }
-
-    if (e.target !== cityField)
-    {
-        cityField.classList.remove('highlightField');
-        cityLable.classList.remove('highlightHead');
-    }
-
-    if (e.target !== phoneField)
-    {
-       phoneField.classList.remove('highlightField');
-       phoneLabel.classList.remove('highlightHead');
-    }
-
-    if (e.target !== referenceField)
-    {
-        referenceField.classList.remove('highlightField');
-    }
-}  
+const fields = [
+    { input: nameField, error: errorMessage01, validation: /^[A-Za-z]+$/, errorMsg: 'Name may only contain letters' },
+    { input: surnameField, error: errorMessage02, validation: /^[A-Za-z]+$/, errorMsg: 'Last Name may only contain letters' },
+    { input: phoneInput, error: errorMessage03, validation: /^\d{10}$/, errorMsg: 'Please enter a valid phone number!' },
+    // Add more fields here with their corresponding error messages and validation patterns
+    { input: emailField, error: errorMessage04, validation: /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/, errorMsg: 'Please enter a valid email address!' },
+    { input: idField, error: errorMessage05, validation: /.+/, errorMsg: 'Please enter a valid ID!' },
+    { input: countryField, error: errorMessage06, validation: /.+/, errorMsg: 'Please select a country!' },
+    { input: stateField, error: errorMessage07, validation: /.+/, errorMsg: 'Please enter a state!' },
+    { input: cityField, error: errorMessage08, validation: /.+/, errorMsg: 'Please enter a city!' },
+    { input: referenceField, error: errorMessage09, validation: /.+/, errorMsg: 'Please enter a reference code!' }
+];
 
 
-//function to hide the error message when the name is not in the correct format...(It will only hide when the focus is on the name-field)
-nameField.addEventListener('focus',function ()
-{
-  errorMessage.textContent = '';
+// Submit event listener for the form
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    formSubmitted = true;
+
+    fields.forEach(field => {
+        const isValid = field.validation.test(field.input.value);
+        if (!isValid) {
+            field.error.textContent = field.errorMsg;
+        } else {
+            field.error.textContent = '';
+        }
+    });
 });
 
 
-//function to display an error message if the name is not in the correct format... (It will only display when the focus is not on the name-field)
-nameField.addEventListener('blur', function ()
-{
-    showErrorMessage = true;
 
-    if(!/^[A-Za-z]+$/.test(nameField.value))
-    {
-        errorMessage.textContent = 'Name may only contain letters'
-    }
-    else
-    {
-        errorMessage.textContent=''
-    }
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Get input values
+    const firstName = document.getElementById("First").value;
+    const lastName = document.getElementById("Last").value;
+    const email = document.getElementById("Email").value;
+    const userID = document.getElementById("userID").value;
+    const country = document.getElementById("Country").value;
+    const state = document.getElementById("State").value;
+    const city = document.getElementById("City").value;
+    const phoneNumber = document.getElementById("Phone").value;
+    const referenceCode = document.getElementById("RefCod").value;
+
+    // Store values in variables
+    const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        userID: userID,
+        country: country,
+        state: state,
+        city: city,
+        phoneNumber: phoneNumber,
+        referenceCode: referenceCode
+    };
+
+    // Do something with the userData object (e.g., send it to a server)
+    console.log(userData);
 });
-
-//function to hide the error message when the lastname is not in the correct format...(It will only hide when the focus is on the lastname-field)
-surnameField.addEventListener('focus',function ()
-{
-  errorMessage2.textContent = '';
-});
-
-
-//function to display an error message if the lastname is not in the correct format... (It will only display when the focus is not on the lastname-field)
-surnameField.addEventListener('blur', function ()
-{
-    showErrorMessage = true;
-
-
-    if(!/^[A-Za-z]+$/.test(surnameField.value))
-
-    {
-        errorMessage2.textContent = 'Last Name may only contain letters'
-    }
-    else
-    {
-        errorMessage2.textContent=''
-    }
-});
-
-
-//function to hide the error message when the phone number is not in the correct format...(It will only hide when the focus is on the phone-number field)
-phoneInput.addEventListener('focus', function () 
-{
-    errorMessage3.textContent = '';
-});
-
-//function to display an error message if the phone number is not in the correct format... (It will only display when the focus is not on the phone-number field)
-phoneInput.addEventListener('blur', function () 
-{
- showErrorMessage = true;
-
- if(!/^\d{10}$/.test(phoneInput.value))
- {
-    errorMessage3.textContent = 'Please enter a valid phone number!'
- }
- else
- {
-    errorMessage3.textContent ='';
- }
-});
-
-//If the email-filed includes an "@" it will display a green tick, else it will display a red cross.
-emailField.addEventListener('input', function () 
-{
-  if (emailField.value.includes('@'))
-  {
-    validTick.style.display = 'inline';
-    unvalidCross.style.display = 'none';
-  }
-  else
-  {
-    validTick.style.display = 'none';
-    unvalidCross.style.display = 'inline';
-  }
-});
-
-
-document.addEventListener('click', highlightClick);
-
-document.addEventListener('click', unhighlightClick);
- 
