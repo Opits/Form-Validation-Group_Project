@@ -180,6 +180,8 @@ phoneInput.addEventListener('blur', function ()
  }
 });
 
+//If the email-filed includes an "@" it will display a green tick, else it will display a red cross.
+
 emailField.addEventListener('input', function () 
 {
   if (emailField.value.includes('@'))
@@ -196,5 +198,7 @@ emailField.addEventListener('input', function ()
 
 
 document.addEventListener('click', highlightClick);
- 
+
 document.addEventListener('click', unhighlightClick);
+ 
+
