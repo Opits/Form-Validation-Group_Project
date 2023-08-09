@@ -123,11 +123,15 @@ let showErrorMessage = false;
     }
 }  
 
+
+//function to hide the error message when the name is not in the correct format...(It will only hide when the focus is on the name-field)
 nameField.addEventListener('focus',function ()
 {
   errorMessage.textContent = '';
 });
 
+
+//function to display an error message if the name is not in the correct format... (It will only display when the focus is not on the name-field)
 nameField.addEventListener('blur', function ()
 {
     showErrorMessage = true;
@@ -142,16 +146,21 @@ nameField.addEventListener('blur', function ()
     }
 });
 
+//function to hide the error message when the lastname is not in the correct format...(It will only hide when the focus is on the lastname-field)
 surnameField.addEventListener('focus',function ()
 {
   errorMessage2.textContent = '';
 });
 
+
+//function to display an error message if the lastname is not in the correct format... (It will only display when the focus is not on the lastname-field)
 surnameField.addEventListener('blur', function ()
 {
     showErrorMessage = true;
 
-    if(!/^[A-Z a-z]+$/.test(surnameField.value))
+
+    if(!/^[A-Za-z]+$/.test(surnameField.value))
+
     {
         errorMessage2.textContent = 'Last Name may only contain letters'
     }
@@ -161,11 +170,14 @@ surnameField.addEventListener('blur', function ()
     }
 });
 
+
+//function to hide the error message when the phone number is not in the correct format...(It will only hide when the focus is on the phone-number field)
 phoneInput.addEventListener('focus', function () 
 {
     errorMessage3.textContent = '';
 });
 
+//function to display an error message if the phone number is not in the correct format... (It will only display when the focus is not on the phone-number field)
 phoneInput.addEventListener('blur', function () 
 {
  showErrorMessage = true;
@@ -181,7 +193,6 @@ phoneInput.addEventListener('blur', function ()
 });
 
 //If the email-filed includes an "@" it will display a green tick, else it will display a red cross.
-
 emailField.addEventListener('input', function () 
 {
   if (emailField.value.includes('@'))
@@ -201,4 +212,3 @@ document.addEventListener('click', highlightClick);
 
 document.addEventListener('click', unhighlightClick);
  
-
