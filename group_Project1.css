@@ -181,3 +181,11 @@ select {
   color: red;
   margin-left: 5px;
 }
+
+#error-message01,#error-message02, #error-message03,#error-message04,#error-message05,#error-message06,#error-message09 {
+  margin-right: 6.5vw;
+}
+
+#error-message08,#error-message07{
+  margin-right: 0.7vw;
+}
