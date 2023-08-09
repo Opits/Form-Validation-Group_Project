@@ -5,6 +5,7 @@
 
 body {
   background: rgb(209, 196, 196);
+  min-width: 80em;
 }
 
 form {
@@ -25,12 +26,10 @@ form {
 label {
   display: block;
   color: rgba(57, 61, 65, 0.558);
-  font-weight: bold;
 }
 
 :placeholder-shown {
-  font-weight: 600;
-  /* font-size: large; */
+  font-weight: 200;
 }
 
 ::placeholder {
@@ -119,12 +118,10 @@ select {
   width: 50%;
   height: 2em;
   margin-bottom: 5vh;
+
+  color: rgba(152, 154, 156, 0.558);
 }
 
-#Reset {
-  color: rgba(152, 154, 156, 0.558);
-  margin-left: 3vw;
-}
 
 #Continue {
   color: white;
@@ -145,7 +142,6 @@ select {
 
 .highlightField {
   border-color: blue;
-  border-width: 2.5px;
 }
 
 .highlightHead {
@@ -155,19 +151,6 @@ select {
 .error {
   color: red;
   text-align: center;
-  font-size: large;
-}
-
-.error02 {
-  color: red;
-  text-align: center;
-  font-size: large;
-}
-
-.error03 {
-  color: red;
-  text-align: center;
-  font-size: large;
 }
 
 .tick {
@@ -182,10 +165,21 @@ select {
   margin-left: 5px;
 }
 
-#error-message01,#error-message02, #error-message03,#error-message04,#error-message05,#error-message06,#error-message09 {
+
+#error-message01,
+#error-message02,
+#error-message03,
+#error-message04,
+#error-message05,
+#error-message06,
+#error-message09 {
   margin-right: 6.5vw;
 }
 
-#error-message08,#error-message07{
+#error-message08,
+#error-message07 {
   margin-right: 0.7vw;
+}
+.hidden {
+  display: none;
 }
