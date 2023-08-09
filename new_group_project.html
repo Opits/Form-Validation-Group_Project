@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="group_Project.css" />
+    <script>
+      function respectiveStatesAndCities(){
+    
+        const countrySelector = document.getElementById('Country');
+        const stateSelector = document.getElementById('State');
+        const citySelector = document.getElementById('City'); 
+
+        const countryValue = countrySelector.value;
+
+     stateSelector.innerHTML = '';
+     citySelector.innerHTML = '';
+
+    
+     if (countryValue === 'South Africa')
+    {
+      const southAfricanStates = [
+        {state: 'Western Cape', city: 'CapeTown'},
+        {state: 'Free State', city: 'Bloemfontein'},
+        {state: 'Gauteng', city: 'Johannesburg'},
+        {state: ' KwaZulu-Natal', city: 'Durban'}
+      ];
+
+      southAfricanStates.forEach(item => {
+        const stateValue = document.createElement('option');
+        stateValue.value=item.state;
+        stateValue.textContent = item.state;
+        stateValue.appendChild(stateValue);
+
+        const cityValue = document.createElement('option')
+        cityValue.value =item.city;
+        cityValue.textContent=item.city;
+        cityValue.appendChild(cityValue);
+      });
+    }
+    else if (countryValue === 'United States') {
+      const unitedStates = [
+        { state: 'New York', city: 'New York City'},
+        { state: 'Texas', city: 'Houston'},
+        { state: 'California', city: 'Los Angeles'},
+        { state: 'Florida', city: 'Miami'}
+      ];
+
+      unitedStates.forEach(item => {
+        const stateValue = document.createElement('option');
+        stateValue.value = item.state;
+        stateValue.textContent = item.state;
+        stateValue.appendChild(stateValue);
+
+        const cityValue = document.createElement('option');
+        cityValue.value = item.city;
+        cityValue.textContent = item.city;
+        cityValue.appendChild(cityValue);
+      });
+    }
+    else if (countryValue === 'United Kindom') {
+      const unitedKindomStates = [
+        { state: 'England', city: 'Bristol'},
+        { state: 'Scotland', city: 'Perth'},
+        { state: 'Wales', city: 'Pembroke'},
+        { state: 'Northen Ireland', city: 'Dublin'}
+      ];
+
+      unitedKindomStates.forEach(item => {
+        const stateValue = document.createElement('option');
+        stateValue.value = item.state;
+        stateValue.textContent = item.state;
+        stateValue.appendChild(stateValue);
+
+        const cityValue = document.createElement('option');
+        cityValue.value = item.city;
+        cityValue.textContent = item.city;
+        cityValue.appendChild(cityValue);
+      });
+    }
+    else if (countryValue === 'Belgium') {
+      const belgiumStates = [
+        { state: 'Antwerp', city: 'Antwerp'},
+        { state: 'Luxembourg', city: 'Luxembourg'},
+        { state: 'Limburg', city: 'Limburg'},
+        { state: 'Brabant', city: 'Brabant'}
+      ];
+
+      belgiumStates.forEach(item => {
+        const stateValue = document.createElement('option');
+        stateValue.value = item.state;
+        stateValue.textContent = item.state;
+        stateValue.appendChild(stateValue);
+
+        const cityValue = document.createElement('option');
+        cityValue.value = item.city;
+        cityValue.textContent = item.city;
+        cityValue.appendChild(cityValue);
+      });
+    }
+  }
+    </script>
+  </head>
+
+  <body>
+    <form action="" id="theForm" class="gridOverView">
+      <section id="uniqueBlue"></section>
+      <section class="">
+        <header>
+          <h2>Basic Details</h2>
+        </header>
+        <hr />
+        <section class="fieldGrids">
+          <section class="fieldAlignLeft">
+            <label for="First" id="firstLabel">First Name</label>
+            <input type="text" name="First" id="First" class="highlightField" placeholder="John" required/>
+            <div id="error-message" class="error"></div>
+          </section>
+          <section class="fieldAlignRight">
+            <label for="Last" id="lastLabel">Last Name</label>
+            <input type="text" name="Last" id="Last" placeholder="Doe" required />
+            <div id="error-message02" class="error"></div>
+          </section>
+          <section class="fieldAlignLeft">
+            <label for="Email" id="emailLabel">Email ID</label>
+            <input
+              type="email"
+              name="Email"
+              id="Email"
+              placeholder="doe.j@email.com"
+              required
+            />
+            <span id="tick" class="tick">✓</span>
+            <span id="cross" class="cross">X</span>
+          </section>
+          <section class="fieldAlignRight">
+            <label for="userID" id="userIDLabel">Your User ID</label>
+            <input type="text" name="userID" id="userID" placeholder="Doe_J" required/>
+          </section>
+
+          <section class="fieldAlignLeft">
+            <label for="Country" id="countryLabel">Country</label>
+            <select name="Country" id="Country" onchange="respectiveStatesAndCities()">
+              <option value="">
+                --------------------- Select a country ---------------------
+              </option>
+
+              <option value="ZA">South Africa</option>
+              <option value="US">United States</option>
+              <option value="GB">United Kingdom</option>
+              <option value="BE">Belgium</option>
+
+            </select>
+          </section>
+          <section id="StateCityGrid" class="fieldAlignRight" required>
+            <section class="StateCityAlign">
+              <label for="State" id="stateLable">State</label>
+              <select name="State" id="State">
+                 <option value="">
+                  --- Select a state ---
+                </option>
+
+                <option value="EC">Western Cape</option>
+                <option value="FS">Free State</option>
+                <option value="GP">Gauteng</option>
+                <option value="KZN">KwaZulu-Natal</option>
+
+                <option value="NY">New York</option>
+                <option value="TX">Texas</option>
+                <option value="C">California</option>
+                <option value="FL">Florida</option>
+
+                <option value="ENG">England</option>
+                <option value="SL">Scotland</option>
+                <option value="W">Wales</option>
+                <option value="NI">Northern Ireland</option>
+
+                <option value="A">Antwerp</option>
+                <option value="LB">Luxembourg</option>
+                <option value="L">Limburg</option>
+                <option value="BB">Brabant</option> 
+
+              </select>
+            </section>
+            <section class="StateCityAlign">
+              <label for="City" id="cityLable">City</label>
+              <select name="City" id="City">
+                <option value="">
+                  --- Select a city ---
+                </option>
+
+                <option value="Cape Town">Cape Town</option>
+                <option value="Bloemfontein">Bloemfontein</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Durban">Durban</option>
+
+                <option value="New York City">New York City</option>
+                <option value="Houston">Houston</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Miami">Miami</option>
+
+                <option value="Bristol">Bristol</option>
+                <option value="Perth">Perth</option>
+                <option value="Pembroke">Pembroke</option>
+                <option value="Dublin">Dublin</option>
+
+                <option value="Antwerp">Antwerp</option>
+                <option value="Luxembourg">Luxembourg</option>
+                <option value="Limburg">Limburg</option>
+                <option value="Brabant">Brabant</option> 
+
+              </select>
+            </section>
+          </section>
+          <section class="fieldAlignLeft">
+            <label for="Phone" id="phoneLabel">Phone Number</label>
+            <input
+              type="tel"
+              name="Phone"
+              id="Phone"
+             placeholder="+27 87 654 321"
+              required
+            />
+            <div id="error-message03" class="error03"></div>
+          </section>
+          <section id="RefCodeAlign">
+            <input
+              type="text"
+              name="RefCod"
+              id="RefCod"
+              placeholder="Reference Code"
+              required
+            />
+          </section>
+        </section>
+        <hr />
+        <section class="buttonGrid">
+          <section>
+            <input id="Reset" type="reset" value="Reset All" />
+          </section>
+          <section></section>
+          <section>
+            <input id="Continue" type="submit" value="Continue" />
+          </section>
+        </section>
+      </section>
+      <section id="uniqueGrey"></section>
+    </form>
+    <script src="group_Project.js"></script>
+  </body>
+</html>
