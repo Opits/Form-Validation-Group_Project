@@ -139,3 +139,55 @@ form.addEventListener("submit", function (event) {
     // Do something with the userData object (e.g., send it to a server)
     console.log(userData);
 });
+
+
+const countryDropdown = document.getElementById("Country");
+const cityDropdown = document.getElementById("City");
+const stateDropdown = document.getElementById("State");
+
+const citiesByCountry = {
+  "":["-- Select a Country --"],
+  US: ["-- Select a City --","New York", "Los Angeles", "Chicago"],
+  Canada: ["-- Select a City --","Toronto", "Vancouver", "Montreal"],
+  ZA: ["-- Select a City --","Johannesburg","Cape Town", "Pretoria","Durban" ],
+  India: ["-- Select a City --","Mumbai", "Delhi", "Bangalore", "Pune"],
+  UK: ["-- Select a City --","London", "Edinburgh", "Belfast"],
+};
+
+const statesByCountry = {
+  "":["-- Select a Country --"],
+  US: ["-- Select a State --","New York", "California", "Illinois"],
+  Canada: ["-- Select a State --","Ontario", "British Columbia", "Quebec"],
+  India: ["-- Select a State --","Maharashtra", "Delhi", "Karnataka"],
+  UK: ["-- Select a State --", "Scotland", "Northern Ireland"],
+  ZA: ["-- Select a Province --","Gauteng","Eastern Cape", "Western Cape","Free State","Kwa-Zulu Natal", ],
+};
+
+function populateCitiesAndStates() {
+  const selectedCountry = countryDropdown.value;
+  const cities = citiesByCountry[selectedCountry];
+  const states = statesByCountry[selectedCountry];
+
+  cityDropdown.innerHTML = "";
+  stateDropdown.innerHTML = "";
+
+  if (cities) {
+    cities.forEach(city => {
+      const option = document.createElement("option");
+      option.value = city;
+      option.textContent = city;
+      cityDropdown.appendChild(option);
+    });
+  }
+
+  if (states) {
+    states.forEach(state => {
+      const option = document.createElement("option");
+      option.value = state;
+      option.textContent = state;
+      stateDropdown.appendChild(option);
+    });
+  }
+}
+
+populateCitiesAndStates();

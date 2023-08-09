@@ -43,13 +43,14 @@
         <section class="fieldAlignLeft">
 
           <label for="Country" id="countryLabel">Country</label>
-          <select name="Country" id="Country">
+          <select name="Country" id="Country" onchange="populateCitiesAndStates()">
             <option value="">
               --------------------- Select a country ---------------------
             </option>
             <option value="ZA">South Africa</option>
             <option value="US">United States</option>
-            <option value="GB">United Kingdom</option>
+            <option value="UK">United Kingdom</option>
+            <option value="India">India</option>
           </select>
           <div id="error-message06" class="error"></div>
         </section>
@@ -58,10 +59,6 @@
           <section class="StateCityAlign">
             <label for="State" id="stateLable">State</label>
             <select name="State" id="State">
-              <option value="">--- Select a state ---</option>
-              <option value="EC">Eastern Cape</option>
-              <option value="FS">Free State</option>
-              <option value="GP">Gauteng</option>
             </select>
             <div id="error-message07" class="error"></div>
           </section>
@@ -69,10 +66,6 @@
           <section class="StateCityAlign">
             <label for="City" id="cityLable">City</label>
             <select name="City" id="City">
-              <option value="">--- Select a city ---</option>
-              <option value="Johannesburg">Johannesburg</option>
-              <option value="CapeTown">Cape Town</option>
-              <option value="Durban">Durban</option>
             </select>
             <div id="error-message08" class="error"></div>
           </section>
