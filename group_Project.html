@@ -281,6 +281,41 @@
       </section>
       <section id="uniqueGrey"></section>
     </form>
+    <script>
+    const form = document.getElementById("theForm");
+    
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      // Get input values
+      const firstName = document.getElementById("First").value;
+      const lastName = document.getElementById("Last").value;
+      const email = document.getElementById("Email").value;
+      const userID = document.getElementById("userID").value;
+      const country = document.getElementById("Country").value;
+      const state = document.getElementById("State").value;
+      const city = document.getElementById("City").value;
+      const phoneNumber = document.getElementById("Phone").value;
+      const referenceCode = document.getElementById("RefCod").value;
+      
+      // Store values in variables
+      const userData = {
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        userID: userID,
+        country: country,
+        state: state,
+        city: city,
+        phoneNumber: phoneNumber,
+        referenceCode: referenceCode
+      };
+      
+      // Do something with the userData object (e.g., send it to a server)
+      console.log(userData);
+    });
+    </script>
     <script src="group_Project.js"></script>
   </body>
 </html>
+

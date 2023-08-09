@@ -1,178 +1,179 @@
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-weight:normal;
-}
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:normal;
+  }
+  
+  body {
+    background: rgb(209, 196, 196);
+  }
+  
+  form {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+    border-width: 0;
+    border-radius: 4px;
+    background: white;
+  }
+  
+  .gridOverView {
+    display: grid;
+    grid-template-columns: 1fr 7fr 0.5fr;
+  }
+  
+  label {
+    display: block;
+    color: rgba(57, 61, 65, 0.558);
+    font-weight: bold;
+  }
+  
+  :placeholder-shown {
+    font-weight: 600;
+    /* font-size: large; */
+  }
+  ::placeholder {
+    color: darkgray;
+  }
+  
+  #uniqueBlue {
+    background-color: rgb(55, 132, 187);
+  }
+  
+  #uniqueGrey {
+    background-color: rgba(57, 61, 65, 0.558);
+  }
+  
+  header {
+    padding: 1em 0em 0em 3em;
+    margin-bottom: 4vh;
+  }
+  
+  h2 {
+    color: rgb(55, 132, 187);
+  }
+  
+  hr {
+    border-width: 2xp;
+    border-color: rgba(57, 61, 65, 0.558);
+    width: 89%;
+    margin-bottom: 5vh;
+  }
+  .fieldGrids,
+  #StateCityGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .fieldAlignLeft {
+    width: 100%;
+    margin-left: 3vw;
+    margin-bottom: 5vh;
+  }
+  
+  .fieldAlignRight {
+    width: 100%;
+    margin-left: 1vw;
+  }
+  
+  #Country {
+    width: 81%;
+  }
+  
+  .StateCityAlign {
+    width: 65%;
+  }
+  
+  #RefCodeAlign {
+    margin-top: 3.2vh;
+    margin-left: 1vw;
+  }
+  input {
+    height: 2em;
+    width: 80%;
+    font-size: larger;
+    border: none;
+    border-bottom: 1px solid rgba(57, 61, 65, 0.558);
+    outline: none;
+  }
+  
+  select {
+    height: 3em;
+    border: none;
+    border-bottom: 1px solid rgba(57, 61, 65, 0.558);
+    outline: none;
+  }
+  
+  .buttonGrid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  #Continue,
+  #Reset {
+    border: none;
+    border-radius: 20px;
+    width: 50%;
+    height: 2em;
+    margin-bottom: 5vh;
+  }
+  
+  #Reset {
+    color: rgba(152, 154, 156, 0.558);
+    margin-left: 3vw;
+  }
+  #Continue {
+    color: white;
+    background: rgb(55, 132, 187);
+    margin-left: 7vh;
+  }
+  
+  #Continue:hover {
+    background-color: darkgreen;
+  }
+  
+  #Reset:hover {
+    background-color: red;
+    color: burlywood;
+  }
+  
+  
+  
+  .highlightField{
+    border-color: blue;
+    border-width: 2.5px;
+  }
+  
+  .highlightHead{
+    color: blue;
+  }
+  
+  .error {
+    color: red;
+   text-align:center;
+  font-size: large;
+  }
+  
+  .error02 {
+    color: red;
+   text-align:center;
+  font-size: large;
+  }
+  
+  .error03 {
+    color: red;
+   text-align:center;
+  font-size: large;
+  }
+  
+  .tick {
+    display: none;
+    color: green;
+    margin-left: 5px;
+  }
+  
+  .cross {
+    display: none;
+    color: red;
+    margin-left: 5px;
+  }
 
-body {
-  background: rgb(209, 196, 196);
-}
-
-form {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4vh;
-  border-width: 0;
-  border-radius: 4px;
-  background: white;
-}
-
-.gridOverView {
-  display: grid;
-  grid-template-columns: 1fr 7fr 0.5fr;
-}
-
-label {
-  display: block;
-  color: rgba(57, 61, 65, 0.558);
-  font-weight: bold;
-}
-
-:placeholder-shown {
-  font-weight: 600;
-  /* font-size: large; */
-}
-::placeholder {
-  color: darkgray;
-}
-
-#uniqueBlue {
-  background-color: rgb(55, 132, 187);
-}
-
-#uniqueGrey {
-  background-color: rgba(57, 61, 65, 0.558);
-}
-
-header {
-  padding: 1em 0em 0em 3em;
-  margin-bottom: 4vh;
-}
-
-h2 {
-  color: rgb(55, 132, 187);
-}
-
-hr {
-  border-width: 2xp;
-  border-color: rgba(57, 61, 65, 0.558);
-  width: 89%;
-  margin-bottom: 5vh;
-}
-.fieldGrids,
-#StateCityGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.fieldAlignLeft {
-  width: 100%;
-  margin-left: 3vw;
-  margin-bottom: 5vh;
-}
-
-.fieldAlignRight {
-  width: 100%;
-  margin-left: 1vw;
-}
-
-#Country {
-  width: 81%;
-}
-
-.StateCityAlign {
-  width: 65%;
-}
-
-#RefCodeAlign {
-  margin-top: 3.2vh;
-  margin-left: 1vw;
-}
-input {
-  height: 2em;
-  width: 80%;
-  font-size: larger;
-  border: none;
-  border-bottom: 1px solid rgba(57, 61, 65, 0.558);
-  outline: none;
-}
-
-select {
-  height: 3em;
-  border: none;
-  border-bottom: 1px solid rgba(57, 61, 65, 0.558);
-  outline: none;
-}
-
-.buttonGrid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-}
-#Continue,
-#Reset {
-  border: none;
-  border-radius: 20px;
-  width: 50%;
-  height: 2em;
-  margin-bottom: 5vh;
-}
-
-#Reset {
-  color: rgba(152, 154, 156, 0.558);
-  margin-left: 3vw;
-}
-#Continue {
-  color: white;
-  background: rgb(55, 132, 187);
-  margin-left: 7vh;
-}
-
-#Continue:hover {
-  background-color: darkgreen;
-}
-
-#Reset:hover {
-  background-color: red;
-  color: burlywood;
-}
-
-
-
-.highlightField{
-  border-color: blue;
-  border-width: 2.5px;
-}
-
-.highlightHead{
-  color: blue;
-}
-
-.error {
-  color: red;
- text-align:center;
-font-size: large;
-}
-
-.error02 {
-  color: red;
- text-align:center;
-font-size: large;
-}
-
-.error03 {
-  color: red;
- text-align:center;
-font-size: large;
-}
-
-.tick {
-  display: none;
-  color: green;
-  margin-left: 5px;
-}
-
-.cross {
-  display: none;
-  color: red;
-  margin-left: 5px;
-}
