@@ -140,6 +140,21 @@ form.addEventListener("submit", function (event) {
     console.log(userData);
 });
 
+//If the email-filed includes an "@" it will display a green tick, else it will display a red cross.
+emailField.addEventListener('input', function () 
+{
+  if (emailField.value.includes('@'))
+  {
+    validTick.style.display = 'inline';
+    unvalidCross.style.display = 'none';
+  }
+  else
+  {
+    validTick.style.display = 'none';
+    unvalidCross.style.display = 'inline';
+  }
+});
+
 
 const countryDropdown = document.getElementById("Country");
 const cityDropdown = document.getElementById("City");
