@@ -146,12 +146,12 @@ emailField.addEventListener('input', function ()
   if (emailField.value.includes('@'))
   {
     validTick.style.display = 'inline';
-    unvalidCross.style.display = 'none';
+    unValidCross.style.display = 'none';
   }
   else
   {
     validTick.style.display = 'none';
-    unvalidCross.style.display = 'inline';
+    unValidCross.style.display = 'inline';
   }
 });
 
@@ -174,7 +174,7 @@ const statesByCountry = {
   US: ["-- Select a State --","New York", "California", "Illinois"],
   Canada: ["-- Select a State --","Ontario", "British Columbia", "Quebec"],
   India: ["-- Select a State --","Maharashtra", "Delhi", "Karnataka"],
-  UK: ["-- Select a State --", "Scotland", "Northern Ireland"],
+  UK: ["-- Select a State --", "Scotland", "Northern Ireland", "England"],
   ZA: ["-- Select a Province --","Gauteng","Eastern Cape", "Western Cape","Free State","Kwa-Zulu Natal", ],
 };
 
